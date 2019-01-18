@@ -17,7 +17,6 @@ class PhotoHeaderView : UICollectionReusableView{
         imageView.clipsToBounds = true
         imageView.layer.borderColor = UIColor.lightGray.cgColor
         imageView.layer.borderWidth = 0.5
-        imageView.backgroundColor = .orange
         return imageView
     }()
     
