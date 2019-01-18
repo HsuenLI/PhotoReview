@@ -31,13 +31,10 @@ class PhotoHeaderView : UICollectionReusableView{
     
     fileprivate func setupView(){
         addSubview(photoImageView)
-        let imageWidth : CGFloat = self.frame.width - 80
-        photoImageView.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: imageWidth, height: imageWidth)
+        photoImageView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         photoImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         photoImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        photoImageView.layer.cornerRadius = imageWidth / 2
-        photoImageView.layer.masksToBounds = true
-        
+
         let separatorView = UIView()
         separatorView.backgroundColor = UIColor(white: 0, alpha: 0.3)
         addSubview(separatorView)
