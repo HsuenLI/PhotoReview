@@ -19,6 +19,7 @@ class PhotoViewController: UICollectionViewController {
     let largeHeaderSize = CGSize(width: 600, height: 600)
     var selectedImage : UIImage?
     var photoAssets = [PHAsset]()
+    var headerView : PhotoHeaderView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,6 @@ class PhotoViewController: UICollectionViewController {
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.register(PhotoHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         collectionView.register(PhotoSelectorCell.self, forCellWithReuseIdentifier: cellId)
-        
         fetchPhotos()
     }
     
@@ -36,6 +36,7 @@ class PhotoViewController: UICollectionViewController {
         let allPhotos = PHAsset.fetchAssets(with: .image, options: options)
         DispatchQueue.global(qos: .background).async{
             allPhotos.enumerateObjects { (asset, count, stop) in
+                print(count)
                 let imageManager = PHImageManager.default()
                 let targetSize = self.smallImageSize
                 let options = PHImageRequestOptions()
@@ -65,18 +66,18 @@ class PhotoViewController: UICollectionViewController {
 extension PhotoViewController : UICollectionViewDelegateFlowLayout{
     //Header
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! PhotoHeaderView
+        headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as? PhotoHeaderView
         
         if let selectedImage = selectedImage{
             if let index = self.photos.index(of: selectedImage){
                 let imageManager = PHImageManager.default()
                 imageManager.requestImage(for: photoAssets[index], targetSize: largeHeaderSize, contentMode: .default, options: nil) { (image, info) in
-                    header.photoImageView.image = image
+                    self.headerView?.photoImageView.image = image
                 }
             }
         }
 
-        return header
+        return headerView!
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -114,6 +115,16 @@ extension PhotoViewController : UICollectionViewDelegateFlowLayout{
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedImage = photos[indexPath.item]
         collectionView.reloadData()
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOffsetY = collectionView.contentOffset.y
+        print(contentOffsetY)
+        if contentOffsetY > 0 {
+            headerView?.animator.fractionComplete = 0
+            return
+        }
+        headerView?.animator.fractionComplete = abs(contentOffsetY) / 100
     }
 }
 

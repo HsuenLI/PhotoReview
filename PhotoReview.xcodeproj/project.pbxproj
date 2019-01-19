@@ -17,6 +17,7 @@
 		CFEF5FEC21F0DA7900D5B9E5 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF5FE921F0DA7900D5B9E5 /* UIColor+Ext.swift */; };
 		CFEF5FEE21F0F30700D5B9E5 /* PhotoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF5FED21F0F30700D5B9E5 /* PhotoHeaderView.swift */; };
 		CFEF5FF021F0F5E000D5B9E5 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF5FEF21F0F5E000D5B9E5 /* PhotoSelectorCell.swift */; };
+		CFEF5FF221F225D400D5B9E5 /* HeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEF5FF121F225D400D5B9E5 /* HeaderLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CFEF5FE921F0DA7900D5B9E5 /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		CFEF5FED21F0F30700D5B9E5 /* PhotoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHeaderView.swift; sourceTree = "<group>"; };
 		CFEF5FEF21F0F5E000D5B9E5 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
+		CFEF5FF121F225D400D5B9E5 /* HeaderLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				CFEF5FDD21F0D6DB00D5B9E5 /* LaunchScreen.storyboard */,
 				CFEF5FE021F0D6DB00D5B9E5 /* Info.plist */,
 				CFEF5FE621F0DA7900D5B9E5 /* Utils */,
+				CFEF5FF121F225D400D5B9E5 /* HeaderLayout.swift */,
 			);
 			path = PhotoReview;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				CFEF5FD721F0D6DA00D5B9E5 /* PhotoViewController.swift in Sources */,
 				CFEF5FEB21F0DA7900D5B9E5 /* CustomConstraints.swift in Sources */,
 				CFEF5FEC21F0DA7900D5B9E5 /* UIColor+Ext.swift in Sources */,
+				CFEF5FF221F225D400D5B9E5 /* HeaderLayout.swift in Sources */,
 				CFEF5FD521F0D6DA00D5B9E5 /* AppDelegate.swift in Sources */,
 				CFEF5FEA21F0DA7900D5B9E5 /* UINavigationController+Ext.swift in Sources */,
 				CFEF5FF021F0F5E000D5B9E5 /* PhotoSelectorCell.swift in Sources */,
@@ -311,6 +315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SUZY35U5GK;
 				INFOPLIST_FILE = PhotoReview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -328,6 +333,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SUZY35U5GK;
 				INFOPLIST_FILE = PhotoReview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
